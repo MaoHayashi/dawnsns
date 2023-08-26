@@ -9,18 +9,22 @@
 <p>User Name</p>
 {{ Form::label('ユーザー名') }}
 {{ Form::text('username',null,['class' => 'input']) }}
+{{ $errors->first('username') }}
 
 <p>Mail Address</p>
 {{ Form::label('メールアドレス') }}
 {{ Form::text('mail',null,['class' => 'input']) }}
+{{ $errors->first('mail') }}
 
 <p>Password</p>
 {{ Form::label('パスワード') }}
 {{ Form::text('password',null,['class' => 'input']) }}
+{{ $errors->first('password') }}
 
 <P>Password confirm</P>
 {{ Form::label('パスワード確認') }}
 {{ Form::text('password-confirm',null,['class' => 'input']) }}
+{{ $errors->first('password-confirm') }}
 
 {{ Form::submit('登録') }}
 
