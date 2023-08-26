@@ -1,20 +1,12 @@
 @extends('layouts.login')
 
 @section('content')
-<div class= "search">
-  <form action="/searchUser" method="POST">
-    @csrf
-    <input type="text" name="username" class="username" placeholder="ユーザー名">
-    <button type="submit" id="sbtm">
-      <i class="fas fa-search"></i>
-    </button>
-  </form>
-</div>
-
-<div>
-  @foreach($users as $user)
+<div id="">
   <img src="/images/{{ $user->images }}" alt="">
+  <p>Name</p>
   <p>{{ $user->username }}</p>
+  <p>Bio</p>
+  <p>{{$user->bio}}</p>
   @if($followNumbers->contains('follow',$user->id))
   <form action="/unfollow" method="POST">
     @csrf
@@ -29,6 +21,16 @@
     <input type="submit" value="フォローする">
   </form>
   @endif
+</div>
+
+
+<div>
+  @foreach($posts as $post)
+    <img src="/images/{{ $post->images }}" alt="">
+  <p>{{ $post->username }}</p>
+  <p>{{ $post->images }}</p>
+  <p>{{ $post->posts }}</p>
+  <p>{{ $post->created_at }}</p>
   @endforeach
 </div>
 
